@@ -1,0 +1,260 @@
+
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+
+// Variables
+@import "variables";
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900");
+@import url("https://cdn.linearicons.com/free/1.0.0/icon-font.min.css");
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: #112233;
+}
+
+.weather-card {
+  margin: 60px auto;
+  height: 740px;
+  width: 450px;
+  background: #fff;
+  box-shadow: 0 1px 38px rgba(0, 0, 0, 0.15), 0 5px 12px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  z-index: 1;
+}
+.weather-card .top {
+  position: relative;
+  height: 570px;
+  width: 100%;
+  overflow: hidden;
+  background: url("https://s-media-cache-ak0.pinimg.com/564x/cf/1e/c4/cf1ec4b0c96e59657a46867a91bb0d1e.jpg") no-repeat;
+  background-size: cover;
+  background-position: center center;
+  text-align: center;
+}
+.weather-card .top .wrapper {
+  padding: 30px;
+  position: relative;
+  z-index: 1;
+}
+.weather-card .top .wrapper .mynav {
+  height: 20px;
+}
+.weather-card .top .wrapper .mynav .lnr {
+  color: #fff;
+  font-size: 20px;
+}
+.weather-card .top .wrapper .mynav .lnr-chevron-left {
+  display: inline-block;
+  float: left;
+  cursor: pointer;
+}
+.weather-card .top .wrapper .mynav .lnr-plus-circle{
+  display: inline-block;
+  float: right;
+  cursor: pointer;
+}
+.weather-card .top .wrapper .mynav .lnr-earth {
+  display: inline-block;
+  float: right;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.weather-card .top .wrapper .heading {
+  margin-top: 20px;
+  font-size: 35px;
+  font-weight: 400;
+  color: #fff;
+}
+
+.gmap {
+  margin-left: 10px;
+  vertical-align: middle;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 25px;
+  font-weight: 300;
+  color:black;
+  text-align: center;
+}
+
+.weather-card .top .wrapper .location {
+  margin-top: 20px;
+  font-size: 21px;
+  font-weight: 400;
+  color: #fff;
+}
+.weather-card .top .wrapper .temp {
+  margin-top: 20px;
+}
+.weather-card .top .wrapper .temp a {
+  text-decoration: none;
+  color: #fff;
+}
+.weather-card .top .wrapper .temp a .temp-type {
+  font-size: 85px;
+}
+.weather-card .top .wrapper .temp .temp-value {
+  display: inline-block;
+  font-size: 85px;
+  font-weight: 600;
+  color: #fff;
+}
+.weather-card .top .wrapper .temp .deg {
+  display: inline-block;
+  font-size: 35px;
+  font-weight: 600;
+  color: #fff;
+  vertical-align: top;
+  margin-top: 10px;
+}
+.weather-card .top:after {
+  content: "";
+  height: 100%;
+  width: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+.weather-card .bottom {
+  margin-top: 20px;
+  padding: 0 30px;
+  background: #fff;
+  transition: all 0.75s 0.25s;
+  z-index: 1;
+}
+.forecast {
+  overflow: hidden;
+  margin: 0;
+  font-size: 0;
+  padding: 0;
+  padding-top: 20px;
+  max-height: 155px;
+}
+.forecast a {
+  text-decoration: none;
+  color: #000;
+}
+.forecast .go-up {
+  text-align: center;
+  display: block;
+  font-size: 25px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.forecast li {
+  display: block;
+  font-size: 25px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.25);
+  line-height: 1em;
+  margin-bottom: 30px;
+}
+.forecast li .date {
+  display: inline-block;
+}
+.forecast li .condition {
+  display: inline-block;
+  vertical-align: middle;
+  float: right;
+  font-size: 25px;
+}
+.forecast li .condition .temp {
+  display: inline-block;
+  vertical-align: top;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  padding-top: 2px;
+}
+.forecast li .condition .temp .deg {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  margin-left: 3px;
+  vertical-align: top;
+}
+.forecast li .condition .temp .temp-type {
+  font-size: 20px;
+}
+.forecast li.active {
+  color: rgba(0, 0, 0, 0.8);
+}
+  
+// arrow animation
+.go-up {
+  transition: all 0.75s 0.25s;
+}
+.lnr-chevron-left{
+  transition: all 0.75s 0.25s;
+}
+.lnr-plus-circle{
+  transition: all 0.75s 0.25s;
+}
+.lnr-earth{
+  transition: all 0.75s 0.25s;
+}
+
+.toggle-right {
+  transform: rotate(180deg);
+}
+.toggle-up {
+  transform: rotate(180deg);
+}
+.bottom-footer{
+  margin: 0;
+  padding: 0;
+  position: relative;
+  height: 570px;
+  width: 100%;
+  overflow: hidden;
+  background: url("https://s-media-cache-ak0.pinimg.com/564x/cf/1e/c4/cf1ec4b0c96e59657a46867a91bb0d1e.jpg") no-repeat;
+  background-size: cover;
+  background-position: center center;
+  text-align: center;
+}
+.heading2{
+  margin-top: 20px;
+  font-size: 25px;
+  font-weight: 400;
+  color: #fff;
+  vertical-align: text-bottom;
+  padding: 10px;
+}
+.nav-wrapper, .nav-wrapper-alert{
+  width: 20%;
+  background: #ECECEC;
+  display: block;
+    position: absolute;
+  top: 60px;
+   left: 49%;
+  background: white;
+  transition: all 0.75s 0.25s;
+  z-index: -1;
+  background-image: url("http://home.bt.com/images/how-to-use-the-new-google-maps-intro-bt-136381953153310401-130731145002.jpg");
+  background-size: contain;
+  box-shadow: 0 1px 38px rgba(0, 0, 0, 0.15), 0 5px 12px rgba(0, 0, 0, 0.25);
+}
+
+.nav-wrapper-alert{
+  width: 30%;
+  padding: 15px;
+  background: #ECECEC;
+  display: block;
+    position: absolute;
+  top: 60px;
+  left: 39%;
+  background: white;
+  transition: all 0.75s 0.25s;
+  box-shadow: 0 1px 38px rgba(0, 0, 0, 0.15), 0 5px 12px rgba(0, 0, 0, 0.25);
+}
+
+.nav-wrapper-active{
+  left: 69%;
+  transition: all 0.75s 0.25s;
+  
+}
