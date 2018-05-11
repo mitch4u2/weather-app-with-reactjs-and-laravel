@@ -35962,7 +35962,6 @@ var Weather = function (_Component) {
       icon: undefined,
       temperature: undefined,
       city: undefined,
-      country: undefined,
       error: undefined,
       update: false,
       days: []
@@ -35993,8 +35992,7 @@ var Weather = function (_Component) {
             cloudcover: Response.data.weather.currently.cloudCover,
             wind: Math.round(Response.data.weather.currently.windSpeed),
             pressure: Math.round(Response.data.weather.currently.pressure),
-            city: Response.data.addr.results[0].address_components[4].long_name,
-            country: Response.data.addr.results[0].address_components[5].long_name,
+            city: Response.data.addr.results[0].formatted_address,
             days: Response.data.weather.daily.data,
             forecastSummary: Response.data.weather.daily.summary
           });
@@ -36156,9 +36154,7 @@ var Weather = function (_Component) {
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     "h3",
                     { className: "location" },
-                    this.state.city,
-                    ", ",
-                    this.state.country
+                    this.state.city
                   ),
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     "p",

@@ -17,7 +17,6 @@ export default class Weather extends Component {
       icon: undefined,
       temperature: undefined,
       city: undefined,
-      country: undefined,
       error: undefined,
       update: false,
       days: []
@@ -50,9 +49,7 @@ export default class Weather extends Component {
             cloudcover: Response.data.weather.currently.cloudCover,
             wind: Math.round(Response.data.weather.currently.windSpeed),
             pressure: Math.round(Response.data.weather.currently.pressure),
-            city: Response.data.addr.results[0].address_components[4].long_name,
-            country:
-              Response.data.addr.results[0].address_components[5].long_name,
+            city: Response.data.addr.results[0].formatted_address,
             days: Response.data.weather.daily.data,
             forecastSummary: Response.data.weather.daily.summary
           });
@@ -142,9 +139,7 @@ export default class Weather extends Component {
                     </a>
                   </div>
                   <h1 className="heading">{this.state.summary}</h1>
-                  <h3 className="location">
-                    {this.state.city}, {this.state.country}
-                  </h3>
+                  <h3 className="location">{this.state.city}</h3>
                   <p className="temp">
                     <span className="temp-value">{this.state.temperature}</span>
                     <span className="deg">0</span>

@@ -16,7 +16,7 @@ class DarkSkyController extends Controller
         $longitude = $request->get('longitude');
         
 // get the location coordinate
-        $coord = $latitude.',-'.$longitude;
+        $coord = $latitude.','.$longitude;
 // store the dark sky api url
 // Exclude hourly and flags from the API response. This is useful for reducing latency and saving cache space
         $apiurl = 'https://api.darksky.net/forecast/eb1a28e06530430fa6a336889e2846f7/'.$coord.'?exclude=hourly,minutely,flags&units=si';
@@ -31,12 +31,15 @@ class DarkSkyController extends Controller
             ),
         );
 
-        $lat = 51.2603015;
-        $lng = 4.2176376;
+        $lat = 36.8064948;
+        $lng = 10.1815316;
         // $coord ="51.2603015,4.2176376";
-        $googlemap = 'https://maps.googleapis.com/maps/api/geocode/json?latlng='.$coord.'&location_type=ROOFTOP&result_type=street_address&key=AIzaSyAX1AOJ_EYCPyTMgob4r-m_qSDjfB75g1I';
+        // $coord ="35.6759,10.0919";     
+        // $googlemap = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=35.6759,10.0919&result_type=street_address&key=AIzaSyAX1AOJ_EYCPyTMgob4r-m_qSDjfB75g1I';
         
-        $addr =  json_decode(file_get_contents($googlemap, false, stream_context_create($arrContextOptions)));
+        $url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=".$coord."&language=en-EN&key=AIzaSyAX1AOJ_EYCPyTMgob4r-m_qSDjfB75g1I";
+        $addr =  json_decode(file_get_contents($url, false, stream_context_create($arrContextOptions)));
+        
         // dd($addr);
         return response()->json(array('weather'=>$weather,'addr'=>$addr));
     }
