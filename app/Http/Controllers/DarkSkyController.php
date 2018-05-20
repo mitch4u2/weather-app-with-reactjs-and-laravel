@@ -31,8 +31,8 @@ class DarkSkyController extends Controller
             ),
         );
 
-        $lat = 36.8064948;
-        $lng = 10.1815316;
+        // $lat = 36.8064948;
+        // $lng = 10.1815316;
         // $coord ="51.2603015,4.2176376";
         // $coord ="35.6759,10.0919";     
         // $googlemap = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=35.6759,10.0919&result_type=street_address&key=AIzaSyAX1AOJ_EYCPyTMgob4r-m_qSDjfB75g1I';

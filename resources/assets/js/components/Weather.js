@@ -3,11 +3,14 @@ import ReactDOM from "react-dom";
 import Axios from "axios";
 import Skycons from "react-skycons";
 import * as moment from "moment";
+import SimpleMap from "./SimpleMap.js";
 
 export default class Weather extends Component {
   constructor() {
     super();
     this.state = {
+      latitude: undefined,
+      longitude: undefined,
       summary: undefined,
       cloudcover: undefined,
       pressure: undefined,
@@ -27,13 +30,31 @@ export default class Weather extends Component {
     var Skycons = require("react-skycons");
     let $this = this;
 
+    // get current location
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        onPositionReceived,
+        onPositionNotReceived
+      );
+    }
+
+    function onPositionNotReceived(positionerror) {
+      console.log(positionerror);
+    }
+
     function onPositionReceived(position) {
       const latitude = position.coords.latitude;
       const longitude = position.coords.longitude;
-
-      Axios.post("../public/api/darksky", {
+      $this.setState({
         latitude: latitude,
         longitude: longitude
+      });
+      console.log($this.state.latitude);
+      console.log($this.state.longitude);
+
+      Axios.post("../public/api/darksky", {
+        latitude: $this.state.latitude,
+        longitude: $this.state.longitude
       })
         .then(Response => {
           console.log(Response.data.weather.daily.data);
@@ -41,11 +62,13 @@ export default class Weather extends Component {
             summary: Response.data.weather.currently.summary,
             icon: Response.data.weather.currently.icon
               .toUpperCase()
-              .replace("-", "_"),
+              .replace(/-/g, "_"),
             temperature: Math.round(
               Response.data.weather.currently.temperature
             ),
-            humidity: Response.data.weather.currently.humidity * 100,
+            humidity: Math.round(
+              Response.data.weather.currently.humidity * 100
+            ),
             cloudcover: Response.data.weather.currently.cloudCover,
             wind: Math.round(Response.data.weather.currently.windSpeed),
             pressure: Math.round(Response.data.weather.currently.pressure),
@@ -58,24 +81,19 @@ export default class Weather extends Component {
           console.log(error);
         });
     }
-
-    function onPositionNotReceived(positionerror) {
-      console.log(positionerror);
-    }
-
-    // get current location
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        onPositionReceived,
-        onPositionNotReceived
-      );
-    }
   }
 
   render() {
     return (
       <div className="container">
         <div className="row">
+          <div className="geomap">
+            <a>
+              <span className="lnr lnr-chevron-right" />
+            </a>
+
+            <SimpleMap lat={this.state.latitude} lng={this.state.longitude} />
+          </div>
           <div className="col">
             <div className="nav-wrapper-alert">
               <ul className="forecast">

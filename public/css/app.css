@@ -10436,6 +10436,9 @@ body {
   background-size: cover;
   background-position: center center;
   text-align: center;
+  -webkit-transition: all 0.75s 0.25s;
+  transition: all 0.75s 0.25s;
+  z-index: 1;
 }
 
 .weather-card .top .wrapper {
@@ -10457,6 +10460,17 @@ body {
   display: inline-block;
   float: left;
   cursor: pointer;
+}
+
+.weather-card .lnr-chevron-right {
+  padding: 10px;
+  font-size: 20px;
+  display: inline-block;
+  float: right;
+  cursor: pointer;
+  color: #000;
+  -webkit-transition: all 0.75s 0.25s;
+  transition: all 0.75s 0.25s;
 }
 
 .weather-card .top .wrapper .mynav .lnr-plus-circle {
@@ -10542,7 +10556,7 @@ body {
   background: #fff;
   -webkit-transition: all 0.75s 0.25s;
   transition: all 0.75s 0.25s;
-  z-index: 1;
+  z-index: 2;
 }
 
 .forecast {
@@ -10698,7 +10712,24 @@ body {
 }
 
 .nav-wrapper-active {
-  left: 69%;
+  margin-left: 100%;
+  -webkit-transition: all 0.75s 0.25s;
+  transition: all 0.75s 0.25s;
+}
+
+.geomap-active {
+  margin-left: 25%;
+  -webkit-transition: all 0.75s 0.25s;
+  transition: all 0.75s 0.25s;
+}
+
+.geomap {
+  position: absolute;
+  top: 40px;
+  left: 37%;
+  width: 445px;
+  height: 370px;
+  z-index: 1;
   -webkit-transition: all 0.75s 0.25s;
   transition: all 0.75s 0.25s;
 }

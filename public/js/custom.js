@@ -6,14 +6,23 @@ $(function() {
   });
   $(".lnr-chevron-left").click(function() {
     $(this).toggleClass("toggle-right");
+    $(".top").toggleClass("nav-wrapper-active");
+    $(".bottom").toggleClass("nav-wrapper-active");
+  });
+  $(".lnr-chevron-right").click(function() {
+    $(this).toggleClass("toggle-right");
+    $(".top").toggleClass("nav-wrapper-active");
+    $(".bottom").toggleClass("nav-wrapper-active");
   });
   $(".lnr-plus-circle").click(function() {
     $(".nav-wrapper-alert").show();
-    $(".nav-wrapper-alert").toggleClass("nav-wrapper-active");
+
+    // $(".geomap").fadeIn(1000);
 
     $(this).toggleClass("toggle-right");
   });
   $(".lnr-earth").click(function() {
     $(this).toggleClass("toggle-right");
+    $(".geomap").toggleClass("geomap-active");
   });
 });

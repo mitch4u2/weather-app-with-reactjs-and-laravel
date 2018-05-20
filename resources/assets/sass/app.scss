@@ -33,6 +33,8 @@ body {
   background-size: cover;
   background-position: center center;
   text-align: center;
+   transition: all 0.75s 0.25s;
+   z-index: 1;
 }
 .weather-card .top .wrapper {
   padding: 30px;
@@ -50,6 +52,16 @@ body {
   display: inline-block;
   float: left;
   cursor: pointer;
+}
+.weather-card .lnr-chevron-right {
+  padding: 10px;
+  font-size: 20px;
+  display: inline-block;
+  float: right;
+  cursor: pointer;
+  color: #000;
+  transition: all 0.75s 0.25s;
+  
 }
 .weather-card .top .wrapper .mynav .lnr-plus-circle{
   display: inline-block;
@@ -125,7 +137,7 @@ body {
   padding: 0 30px;
   background: #fff;
   transition: all 0.75s 0.25s;
-  z-index: 1;
+  z-index:2;
 }
 .forecast {
   overflow: hidden;
@@ -254,7 +266,20 @@ body {
 }
 
 .nav-wrapper-active{
-  left: 69%;
+  margin-left: 100%;
+  transition: all 0.75s 0.25s; 
+}
+.geomap-active{
+  margin-left:25%;
+  transition: all 0.75s 0.25s; 
+}
+.geomap{
+  position: absolute;
+  top:40px;
+  left:37%;
+  width: 445px;
+  height: 370px;
+  z-index: 1;
   transition: all 0.75s 0.25s;
-  
+  // box-shadow: 0 1px 38px rgba(151, 141, 141, 0.15), 0 5px 12px rgba(196, 174, 174, 0.25);
 }
